@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE3EBEAC2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBEAB2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift */; };
+		EE3EBEAE2ACFB964008FBDAA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBEAD2ACFB964008FBDAA /* ContentView.swift */; };
+		EE3EBEB02ACFB965008FBDAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3EBEAF2ACFB965008FBDAA /* Assets.xcassets */; };
+		EE3EBEB32ACFB965008FBDAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3EBEB22ACFB965008FBDAA /* Preview Assets.xcassets */; };
+		EE3EBEB52ACFB965008FBDAA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBEB42ACFB965008FBDAA /* Persistence.swift */; };
+		EE3EBEB82ACFB965008FBDAA /* EasyRoutes_NSW.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBEB62ACFB965008FBDAA /* EasyRoutes_NSW.xcdatamodeld */; };
+		EE3EBEC32ACFB965008FBDAA /* EasyRoutes_NSWTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBEC22ACFB965008FBDAA /* EasyRoutes_NSWTests.swift */; };
+		EE3EBECD2ACFB965008FBDAA /* EasyRoutes_NSWUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBECC2ACFB965008FBDAA /* EasyRoutes_NSWUITests.swift */; };
+		EE3EBECF2ACFB965008FBDAA /* EasyRoutes_NSWUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBECE2ACFB965008FBDAA /* EasyRoutes_NSWUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE3EBEBF2ACFB965008FBDAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE3EBEA02ACFB964008FBDAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE3EBEA72ACFB964008FBDAA;
+			remoteInfo = "EasyRoutes NSW";
+		};
+		EE3EBEC92ACFB965008FBDAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE3EBEA02ACFB964008FBDAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE3EBEA72ACFB964008FBDAA;
+			remoteInfo = "EasyRoutes NSW";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EE3EBEA82ACFB964008FBDAA /* EasyRoutes NSW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EasyRoutes NSW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE3EBEAB2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRoutes_NSWApp.swift; sourceTree = "<group>"; };
+		EE3EBEAD2ACFB964008FBDAA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EE3EBEAF2ACFB965008FBDAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE3EBEB22ACFB965008FBDAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EE3EBEB42ACFB965008FBDAA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		EE3EBEB72ACFB965008FBDAA /* EasyRoutes_NSW.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EasyRoutes_NSW.xcdatamodel; sourceTree = "<group>"; };
+		EE3EBEB92ACFB965008FBDAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE3EBEBE2ACFB965008FBDAA /* EasyRoutes NSWTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EasyRoutes NSWTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE3EBEC22ACFB965008FBDAA /* EasyRoutes_NSWTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRoutes_NSWTests.swift; sourceTree = "<group>"; };
+		EE3EBEC82ACFB965008FBDAA /* EasyRoutes NSWUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EasyRoutes NSWUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE3EBECC2ACFB965008FBDAA /* EasyRoutes_NSWUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRoutes_NSWUITests.swift; sourceTree = "<group>"; };
+		EE3EBECE2ACFB965008FBDAA /* EasyRoutes_NSWUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRoutes_NSWUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE3EBEA52ACFB964008FBDAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE3EBEBB2ACFB965008FBDAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE3EBEC52ACFB965008FBDAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE3EBE9F2ACFB964008FBDAA = {
+			isa = PBXGroup;
+			children = (
+				EE3EBEAA2ACFB964008FBDAA /* EasyRoutes NSW */,
+				EE3EBEC12ACFB965008FBDAA /* EasyRoutes NSWTests */,
+				EE3EBECB2ACFB965008FBDAA /* EasyRoutes NSWUITests */,
+				EE3EBEA92ACFB964008FBDAA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE3EBEA92ACFB964008FBDAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE3EBEA82ACFB964008FBDAA /* EasyRoutes NSW.app */,
+				EE3EBEBE2ACFB965008FBDAA /* EasyRoutes NSWTests.xctest */,
+				EE3EBEC82ACFB965008FBDAA /* EasyRoutes NSWUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE3EBEAA2ACFB964008FBDAA /* EasyRoutes NSW */ = {
+			isa = PBXGroup;
+			children = (
+				EE3EBEAB2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift */,
+				EE3EBEAD2ACFB964008FBDAA /* ContentView.swift */,
+				EE3EBEAF2ACFB965008FBDAA /* Assets.xcassets */,
+				EE3EBEB42ACFB965008FBDAA /* Persistence.swift */,
+				EE3EBEB92ACFB965008FBDAA /* Info.plist */,
+				EE3EBEB62ACFB965008FBDAA /* EasyRoutes_NSW.xcdatamodeld */,
+				EE3EBEB12ACFB965008FBDAA /* Preview Content */,
+			);
+			path = "EasyRoutes NSW";
+			sourceTree = "<group>";
+		};
+		EE3EBEB12ACFB965008FBDAA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EE3EBEB22ACFB965008FBDAA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EE3EBEC12ACFB965008FBDAA /* EasyRoutes NSWTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE3EBEC22ACFB965008FBDAA /* EasyRoutes_NSWTests.swift */,
+			);
+			path = "EasyRoutes NSWTests";
+			sourceTree = "<group>";
+		};
+		EE3EBECB2ACFB965008FBDAA /* EasyRoutes NSWUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EE3EBECC2ACFB965008FBDAA /* EasyRoutes_NSWUITests.swift */,
+				EE3EBECE2ACFB965008FBDAA /* EasyRoutes_NSWUITestsLaunchTests.swift */,
+			);
+			path = "EasyRoutes NSWUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE3EBEA72ACFB964008FBDAA /* EasyRoutes NSW */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE3EBED22ACFB965008FBDAA /* Build configuration list for PBXNativeTarget "EasyRoutes NSW" */;
+			buildPhases = (
+				EE3EBEA42ACFB964008FBDAA /* Sources */,
+				EE3EBEA52ACFB964008FBDAA /* Frameworks */,
+				EE3EBEA62ACFB964008FBDAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "EasyRoutes NSW";
+			productName = "EasyRoutes NSW";
+			productReference = EE3EBEA82ACFB964008FBDAA /* EasyRoutes NSW.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE3EBEBD2ACFB965008FBDAA /* EasyRoutes NSWTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE3EBED52ACFB965008FBDAA /* Build configuration list for PBXNativeTarget "EasyRoutes NSWTests" */;
+			buildPhases = (
+				EE3EBEBA2ACFB965008FBDAA /* Sources */,
+				EE3EBEBB2ACFB965008FBDAA /* Frameworks */,
+				EE3EBEBC2ACFB965008FBDAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE3EBEC02ACFB965008FBDAA /* PBXTargetDependency */,
+			);
+			name = "EasyRoutes NSWTests";
+			productName = "EasyRoutes NSWTests";
+			productReference = EE3EBEBE2ACFB965008FBDAA /* EasyRoutes NSWTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EE3EBEC72ACFB965008FBDAA /* EasyRoutes NSWUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE3EBED82ACFB965008FBDAA /* Build configuration list for PBXNativeTarget "EasyRoutes NSWUITests" */;
+			buildPhases = (
+				EE3EBEC42ACFB965008FBDAA /* Sources */,
+				EE3EBEC52ACFB965008FBDAA /* Frameworks */,
+				EE3EBEC62ACFB965008FBDAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE3EBECA2ACFB965008FBDAA /* PBXTargetDependency */,
+			);
+			name = "EasyRoutes NSWUITests";
+			productName = "EasyRoutes NSWUITests";
+			productReference = EE3EBEC82ACFB965008FBDAA /* EasyRoutes NSWUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE3EBEA02ACFB964008FBDAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					EE3EBEA72ACFB964008FBDAA = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					EE3EBEBD2ACFB965008FBDAA = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = EE3EBEA72ACFB964008FBDAA;
+					};
+					EE3EBEC72ACFB965008FBDAA = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = EE3EBEA72ACFB964008FBDAA;
+					};
+				};
+			};
+			buildConfigurationList = EE3EBEA32ACFB964008FBDAA /* Build configuration list for PBXProject "EasyRoutes NSW" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE3EBE9F2ACFB964008FBDAA;
+			productRefGroup = EE3EBEA92ACFB964008FBDAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE3EBEA72ACFB964008FBDAA /* EasyRoutes NSW */,
+				EE3EBEBD2ACFB965008FBDAA /* EasyRoutes NSWTests */,
+				EE3EBEC72ACFB965008FBDAA /* EasyRoutes NSWUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE3EBEA62ACFB964008FBDAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE3EBEB32ACFB965008FBDAA /* Preview Assets.xcassets in Resources */,
+				EE3EBEB02ACFB965008FBDAA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE3EBEBC2ACFB965008FBDAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE3EBEC62ACFB965008FBDAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE3EBEA42ACFB964008FBDAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE3EBEB52ACFB965008FBDAA /* Persistence.swift in Sources */,
+				EE3EBEAE2ACFB964008FBDAA /* ContentView.swift in Sources */,
+				EE3EBEB82ACFB965008FBDAA /* EasyRoutes_NSW.xcdatamodeld in Sources */,
+				EE3EBEAC2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE3EBEBA2ACFB965008FBDAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE3EBEC32ACFB965008FBDAA /* EasyRoutes_NSWTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE3EBEC42ACFB965008FBDAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE3EBECD2ACFB965008FBDAA /* EasyRoutes_NSWUITests.swift in Sources */,
+				EE3EBECF2ACFB965008FBDAA /* EasyRoutes_NSWUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE3EBEC02ACFB965008FBDAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE3EBEA72ACFB964008FBDAA /* EasyRoutes NSW */;
+			targetProxy = EE3EBEBF2ACFB965008FBDAA /* PBXContainerItemProxy */;
+		};
+		EE3EBECA2ACFB965008FBDAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE3EBEA72ACFB964008FBDAA /* EasyRoutes NSW */;
+			targetProxy = EE3EBEC92ACFB965008FBDAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EE3EBED02ACFB965008FBDAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EE3EBED12ACFB965008FBDAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE3EBED32ACFB965008FBDAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EasyRoutes NSW/Preview Content\"";
+				DEVELOPMENT_TEAM = GF884VD933;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "AdvancedIOSProject1.EasyRoutes-NSW";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE3EBED42ACFB965008FBDAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EasyRoutes NSW/Preview Content\"";
+				DEVELOPMENT_TEAM = GF884VD933;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "AdvancedIOSProject1.EasyRoutes-NSW";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EE3EBED62ACFB965008FBDAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GF884VD933;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "AdvancedIOSProject1.EasyRoutes-NSWTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyRoutes NSW.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EasyRoutes NSW";
+			};
+			name = Debug;
+		};
+		EE3EBED72ACFB965008FBDAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GF884VD933;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "AdvancedIOSProject1.EasyRoutes-NSWTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyRoutes NSW.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EasyRoutes NSW";
+			};
+			name = Release;
+		};
+		EE3EBED92ACFB965008FBDAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GF884VD933;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "AdvancedIOSProject1.EasyRoutes-NSWUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "EasyRoutes NSW";
+			};
+			name = Debug;
+		};
+		EE3EBEDA2ACFB965008FBDAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GF884VD933;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "AdvancedIOSProject1.EasyRoutes-NSWUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "EasyRoutes NSW";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE3EBEA32ACFB964008FBDAA /* Build configuration list for PBXProject "EasyRoutes NSW" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE3EBED02ACFB965008FBDAA /* Debug */,
+				EE3EBED12ACFB965008FBDAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE3EBED22ACFB965008FBDAA /* Build configuration list for PBXNativeTarget "EasyRoutes NSW" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE3EBED32ACFB965008FBDAA /* Debug */,
+				EE3EBED42ACFB965008FBDAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE3EBED52ACFB965008FBDAA /* Build configuration list for PBXNativeTarget "EasyRoutes NSWTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE3EBED62ACFB965008FBDAA /* Debug */,
+				EE3EBED72ACFB965008FBDAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE3EBED82ACFB965008FBDAA /* Build configuration list for PBXNativeTarget "EasyRoutes NSWUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE3EBED92ACFB965008FBDAA /* Debug */,
+				EE3EBEDA2ACFB965008FBDAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EE3EBEB62ACFB965008FBDAA /* EasyRoutes_NSW.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EE3EBEB72ACFB965008FBDAA /* EasyRoutes_NSW.xcdatamodel */,
+			);
+			currentVersion = EE3EBEB72ACFB965008FBDAA /* EasyRoutes_NSW.xcdatamodel */;
+			path = EasyRoutes_NSW.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EE3EBEA02ACFB964008FBDAA /* Project object */;
+}
