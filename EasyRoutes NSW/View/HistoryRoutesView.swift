@@ -1,43 +1,42 @@
 //
-//  ContentView.swift
+//  HistoryRoutesView.swift
 //  EasyRoutes NSW
 //
-//  Created by Yan Hua on 6/10/2023.
+//  Created by Yangru Guo on 6/10/2023.
 //
 
 import SwiftUI
-import CoreData
 
-struct ContentView: View {
+struct HistoryRoutesView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    
+        @FetchRequest(
+            sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+            animation: .default)
+        private var items: FetchedResults<Item>
+    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
+                        List {
+                            ForEach(items) { item in
+                                NavigationLink {
+                                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                                } label: {
+                                    Text(item.timestamp!, formatter: itemFormatter)
+                                }
+                            }
+                            .onDelete(perform: deleteItems)
+                        }
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                EditButton()
+                            }
+                            ToolbarItem {
+                                Button(action: addItem) {
+                                    Label("Add Item", systemImage: "plus")
+                                }
+                            }
+                        }
             Text("Select an item")
         }
     }
@@ -81,8 +80,9 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
+struct HistoryRoutesView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        HistoryRoutesView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6480FB3F65EFDA552A6006E8 /* Pods_EasyRoutes_NSW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B712C4D036D7F95D2CC6B72A /* Pods_EasyRoutes_NSW.framework */; };
 		EE3EBEAC2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBEAB2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift */; };
-		EE3EBEAE2ACFB964008FBDAA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBEAD2ACFB964008FBDAA /* ContentView.swift */; };
+		EE3EBEAE2ACFB964008FBDAA /* TripPlanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBEAD2ACFB964008FBDAA /* TripPlanningView.swift */; };
 		EE3EBEB02ACFB965008FBDAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3EBEAF2ACFB965008FBDAA /* Assets.xcassets */; };
 		EE3EBEB32ACFB965008FBDAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3EBEB22ACFB965008FBDAA /* Preview Assets.xcassets */; };
 		EE3EBEB52ACFB965008FBDAA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBEB42ACFB965008FBDAA /* Persistence.swift */; };
@@ -16,6 +17,20 @@
 		EE3EBEC32ACFB965008FBDAA /* EasyRoutes_NSWTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBEC22ACFB965008FBDAA /* EasyRoutes_NSWTests.swift */; };
 		EE3EBECD2ACFB965008FBDAA /* EasyRoutes_NSWUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBECC2ACFB965008FBDAA /* EasyRoutes_NSWUITests.swift */; };
 		EE3EBECF2ACFB965008FBDAA /* EasyRoutes_NSWUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EBECE2ACFB965008FBDAA /* EasyRoutes_NSWUITestsLaunchTests.swift */; };
+		EE8F63E12ACFDE09008A36A2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63E02ACFDE09008A36A2 /* MainView.swift */; };
+		EE8F63E32ACFDE3F008A36A2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63E22ACFDE3F008A36A2 /* MapView.swift */; };
+		EE8F63E52ACFDE58008A36A2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63E42ACFDE58008A36A2 /* SettingView.swift */; };
+		EE8F63E92ACFE166008A36A2 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63E82ACFE166008A36A2 /* MapViewModel.swift */; };
+		EE8F63EB2ACFE35D008A36A2 /* HistoryRoutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63EA2ACFE35D008A36A2 /* HistoryRoutesView.swift */; };
+		EE8F63ED2AD0465D008A36A2 /* TripPlanningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63EC2AD0465D008A36A2 /* TripPlanningViewModel.swift */; };
+		EE8F63EF2AD39B1D008A36A2 /* GoogleMapServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63EE2AD39B1D008A36A2 /* GoogleMapServiceManager.swift */; };
+		EE8F63F12AD3A351008A36A2 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63F02AD3A351008A36A2 /* Route.swift */; };
+		EE8F63F32AD3B06C008A36A2 /* SensitiveInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63F22AD3B06C008A36A2 /* SensitiveInfo.swift */; };
+		EE8F63F52AD3CA59008A36A2 /* JasonTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EE8F63F42AD3CA59008A36A2 /* JasonTest.json */; };
+		EE8F63F72AD44D6A008A36A2 /* TransitionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63F62AD44D6A008A36A2 /* TransitionDetailView.swift */; };
+		EE8F63F92AD4548E008A36A2 /* RouteRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63F82AD4548E008A36A2 /* RouteRecord.swift */; };
+		EE8F63FB2AD50200008A36A2 /* TransitDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63FA2AD50200008A36A2 /* TransitDetailViewModel.swift */; };
+		EE8F63FF2AD50A25008A36A2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EE8F63FE2AD50A25008A36A2 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +51,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		353BB033B2F3D788BFD7AA32 /* Pods-EasyRoutes NSW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyRoutes NSW.debug.xcconfig"; path = "Target Support Files/Pods-EasyRoutes NSW/Pods-EasyRoutes NSW.debug.xcconfig"; sourceTree = "<group>"; };
+		912BF7FCE317CF0D1E792BDF /* Pods-EasyRoutes NSW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyRoutes NSW.release.xcconfig"; path = "Target Support Files/Pods-EasyRoutes NSW/Pods-EasyRoutes NSW.release.xcconfig"; sourceTree = "<group>"; };
+		B712C4D036D7F95D2CC6B72A /* Pods_EasyRoutes_NSW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyRoutes_NSW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3EBEA82ACFB964008FBDAA /* EasyRoutes NSW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EasyRoutes NSW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3EBEAB2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRoutes_NSWApp.swift; sourceTree = "<group>"; };
-		EE3EBEAD2ACFB964008FBDAA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EE3EBEAD2ACFB964008FBDAA /* TripPlanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanningView.swift; sourceTree = "<group>"; };
 		EE3EBEAF2ACFB965008FBDAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE3EBEB22ACFB965008FBDAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EE3EBEB42ACFB965008FBDAA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -49,6 +67,21 @@
 		EE3EBEC82ACFB965008FBDAA /* EasyRoutes NSWUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EasyRoutes NSWUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3EBECC2ACFB965008FBDAA /* EasyRoutes_NSWUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRoutes_NSWUITests.swift; sourceTree = "<group>"; };
 		EE3EBECE2ACFB965008FBDAA /* EasyRoutes_NSWUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRoutes_NSWUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EE3EBEDF2ACFC4C7008FBDAA /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		EE8F63E02ACFDE09008A36A2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EE8F63E22ACFDE3F008A36A2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		EE8F63E42ACFDE58008A36A2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		EE8F63E82ACFE166008A36A2 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		EE8F63EA2ACFE35D008A36A2 /* HistoryRoutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRoutesView.swift; sourceTree = "<group>"; };
+		EE8F63EC2AD0465D008A36A2 /* TripPlanningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanningViewModel.swift; sourceTree = "<group>"; };
+		EE8F63EE2AD39B1D008A36A2 /* GoogleMapServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapServiceManager.swift; sourceTree = "<group>"; };
+		EE8F63F02AD3A351008A36A2 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		EE8F63F22AD3B06C008A36A2 /* SensitiveInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveInfo.swift; sourceTree = "<group>"; };
+		EE8F63F42AD3CA59008A36A2 /* JasonTest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JasonTest.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		EE8F63F62AD44D6A008A36A2 /* TransitionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionDetailView.swift; sourceTree = "<group>"; };
+		EE8F63F82AD4548E008A36A2 /* RouteRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteRecord.swift; sourceTree = "<group>"; };
+		EE8F63FA2AD50200008A36A2 /* TransitDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitDetailViewModel.swift; sourceTree = "<group>"; };
+		EE8F63FE2AD50A25008A36A2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6480FB3F65EFDA552A6006E8 /* Pods_EasyRoutes_NSW.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,13 +110,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		016B99DFA7AE687B167A3F82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B712C4D036D7F95D2CC6B72A /* Pods_EasyRoutes_NSW.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5747C57046110865A98CE551 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				353BB033B2F3D788BFD7AA32 /* Pods-EasyRoutes NSW.debug.xcconfig */,
+				912BF7FCE317CF0D1E792BDF /* Pods-EasyRoutes NSW.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EE3EBE9F2ACFB964008FBDAA = {
 			isa = PBXGroup;
 			children = (
+				EE3EBEDF2ACFC4C7008FBDAA /* Readme.md */,
+				EE8F63FE2AD50A25008A36A2 /* .gitignore */,
 				EE3EBEAA2ACFB964008FBDAA /* EasyRoutes NSW */,
 				EE3EBEC12ACFB965008FBDAA /* EasyRoutes NSWTests */,
 				EE3EBECB2ACFB965008FBDAA /* EasyRoutes NSWUITests */,
 				EE3EBEA92ACFB964008FBDAA /* Products */,
+				5747C57046110865A98CE551 /* Pods */,
+				016B99DFA7AE687B167A3F82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,10 +155,12 @@
 			isa = PBXGroup;
 			children = (
 				EE3EBEAB2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift */,
-				EE3EBEAD2ACFB964008FBDAA /* ContentView.swift */,
 				EE3EBEAF2ACFB965008FBDAA /* Assets.xcassets */,
-				EE3EBEB42ACFB965008FBDAA /* Persistence.swift */,
+				EE3EBEDB2ACFC326008FBDAA /* Model */,
+				EE3EBEDC2ACFC32C008FBDAA /* View */,
+				EE3EBEDE2ACFC342008FBDAA /* ViewModel */,
 				EE3EBEB92ACFB965008FBDAA /* Info.plist */,
+				EE3EBEB42ACFB965008FBDAA /* Persistence.swift */,
 				EE3EBEB62ACFB965008FBDAA /* EasyRoutes_NSW.xcdatamodeld */,
 				EE3EBEB12ACFB965008FBDAA /* Preview Content */,
 			);
@@ -135,6 +192,41 @@
 			path = "EasyRoutes NSWUITests";
 			sourceTree = "<group>";
 		};
+		EE3EBEDB2ACFC326008FBDAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE8F63EE2AD39B1D008A36A2 /* GoogleMapServiceManager.swift */,
+				EE8F63F22AD3B06C008A36A2 /* SensitiveInfo.swift */,
+				EE8F63F02AD3A351008A36A2 /* Route.swift */,
+				EE8F63F82AD4548E008A36A2 /* RouteRecord.swift */,
+				EE8F63F42AD3CA59008A36A2 /* JasonTest.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EE3EBEDC2ACFC32C008FBDAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE3EBEAD2ACFB964008FBDAA /* TripPlanningView.swift */,
+				EE8F63F62AD44D6A008A36A2 /* TransitionDetailView.swift */,
+				EE8F63E02ACFDE09008A36A2 /* MainView.swift */,
+				EE8F63E22ACFDE3F008A36A2 /* MapView.swift */,
+				EE8F63EA2ACFE35D008A36A2 /* HistoryRoutesView.swift */,
+				EE8F63E42ACFDE58008A36A2 /* SettingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EE3EBEDE2ACFC342008FBDAA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EE8F63E82ACFE166008A36A2 /* MapViewModel.swift */,
+				EE8F63EC2AD0465D008A36A2 /* TripPlanningViewModel.swift */,
+				EE8F63FA2AD50200008A36A2 /* TransitDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,9 +234,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE3EBED22ACFB965008FBDAA /* Build configuration list for PBXNativeTarget "EasyRoutes NSW" */;
 			buildPhases = (
+				2FB93ABF21F5949CF009B473 /* [CP] Check Pods Manifest.lock */,
 				EE3EBEA42ACFB964008FBDAA /* Sources */,
 				EE3EBEA52ACFB964008FBDAA /* Frameworks */,
 				EE3EBEA62ACFB964008FBDAA /* Resources */,
+				6849DDA48458D787CF91E2F2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,7 +333,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8F63FF2AD50A25008A36A2 /* .gitignore in Resources */,
 				EE3EBEB32ACFB965008FBDAA /* Preview Assets.xcassets in Resources */,
+				EE8F63F52AD3CA59008A36A2 /* JasonTest.json in Resources */,
 				EE3EBEB02ACFB965008FBDAA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,15 +356,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2FB93ABF21F5949CF009B473 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyRoutes NSW-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6849DDA48458D787CF91E2F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyRoutes NSW/Pods-EasyRoutes NSW-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyRoutes NSW/Pods-EasyRoutes NSW-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyRoutes NSW/Pods-EasyRoutes NSW-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EE3EBEA42ACFB964008FBDAA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EE3EBEB52ACFB965008FBDAA /* Persistence.swift in Sources */,
-				EE3EBEAE2ACFB964008FBDAA /* ContentView.swift in Sources */,
+				EE8F63E32ACFDE3F008A36A2 /* MapView.swift in Sources */,
+				EE8F63F72AD44D6A008A36A2 /* TransitionDetailView.swift in Sources */,
+				EE8F63F32AD3B06C008A36A2 /* SensitiveInfo.swift in Sources */,
+				EE8F63ED2AD0465D008A36A2 /* TripPlanningViewModel.swift in Sources */,
+				EE8F63EB2ACFE35D008A36A2 /* HistoryRoutesView.swift in Sources */,
+				EE8F63EF2AD39B1D008A36A2 /* GoogleMapServiceManager.swift in Sources */,
+				EE3EBEAE2ACFB964008FBDAA /* TripPlanningView.swift in Sources */,
+				EE8F63E52ACFDE58008A36A2 /* SettingView.swift in Sources */,
+				EE8F63F12AD3A351008A36A2 /* Route.swift in Sources */,
 				EE3EBEB82ACFB965008FBDAA /* EasyRoutes_NSW.xcdatamodeld in Sources */,
+				EE8F63FB2AD50200008A36A2 /* TransitDetailViewModel.swift in Sources */,
 				EE3EBEAC2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift in Sources */,
+				EE8F63F92AD4548E008A36A2 /* RouteRecord.swift in Sources */,
+				EE8F63E12ACFDE09008A36A2 /* MainView.swift in Sources */,
+				EE8F63E92ACFE166008A36A2 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,15 +571,17 @@
 		};
 		EE3EBED32ACFB965008FBDAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 353BB033B2F3D788BFD7AA32 /* Pods-EasyRoutes NSW.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EasyRoutes NSW/Preview Content\"";
-				DEVELOPMENT_TEAM = GF884VD933;
+				DEVELOPMENT_TEAM = 37NUP3CV36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide you with accurate route information.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -440,7 +592,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "AdvancedIOSProject1.EasyRoutes-NSW";
+				PRODUCT_BUNDLE_IDENTIFIER = "AdvancedIOSProject.EasyRoutes-NSW";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -450,15 +602,17 @@
 		};
 		EE3EBED42ACFB965008FBDAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 912BF7FCE317CF0D1E792BDF /* Pods-EasyRoutes NSW.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EasyRoutes NSW/Preview Content\"";
-				DEVELOPMENT_TEAM = GF884VD933;
+				DEVELOPMENT_TEAM = 37NUP3CV36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide you with accurate route information.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -469,7 +623,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "AdvancedIOSProject1.EasyRoutes-NSW";
+				PRODUCT_BUNDLE_IDENTIFIER = "AdvancedIOSProject.EasyRoutes-NSW";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

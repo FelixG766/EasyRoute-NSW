@@ -2,7 +2,7 @@
 //  EasyRoutes_NSWApp.swift
 //  EasyRoutes NSW
 //
-//  Created by Yan Hua on 6/10/2023.
+//  Created by Yangru Guo on 6/10/2023.
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ struct EasyRoutes_NSWApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
