@@ -9,13 +9,16 @@ import Foundation
 import MapKit
 import CoreData
 import SwiftUI
+import Combine
+import Alamofire
 
 class MapViewModel:ObservableObject{
     
     @Published var focusedRegion: MKCoordinateRegion = MKCoordinateRegion(center: .init(latitude: -33.8837, longitude: 151.2006), span: .init(latitudeDelta: 0.1, longitudeDelta: 0.1))
     @Published var selectedPlace:CLPlacemark?
     @Published var annotationForSelectedPlace:MKPointAnnotation?
-    
+    @Published var transitAnnotation:[StopAnnotation] = []
+    private let transitDetailViewModel = TransitDetailViewModel()
     
     func addDragablePin(suggestedPlacemark:CLPlacemark){
         selectedPlace = suggestedPlacemark
@@ -29,6 +32,24 @@ class MapViewModel:ObservableObject{
             self.annotationForSelectedPlace = annotation
             
         }
+    }
+    
+    func updateRegionForUserLocation(_ showUserLocation: Bool) {
+        if showUserLocation {
+            // Enable user location tracking
+            focusedRegion.center = UserLocationManager.shared.userLocation.coordinate
+            focusedRegion.span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        } else {
+            // Disable user location tracking
+            focusedRegion.center = CLLocationCoordinate2D(latitude: -33.8837, longitude: 151.2006) // Default location
+            focusedRegion.span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) // Default span
+        }
+    }
+    
+    func viewTransitionDetailsOnMap(transitionDetails:TransitDetails){
+        transitAnnotation = []
+        transitAnnotation.append(StopAnnotation(stopType: "Arrival", stop: transitionDetails.stopDetails.arrivalStop, time: transitionDetails.stopDetails.arrivalTime, transitLine: transitDetailViewModel.getTransportName(transitDetails: transitionDetails), transitLineColor: Color(hex:transitionDetails.transitLine.color), vehicleIcon: transitDetailViewModel.getSignString(transitDetails: transitionDetails)))
+        transitAnnotation.append(StopAnnotation(stopType: "Departure", stop: transitionDetails.stopDetails.departureStop, time: transitionDetails.stopDetails.departureTime, transitLine: transitDetailViewModel.getTransportName(transitDetails: transitionDetails), transitLineColor: Color(hex:transitionDetails.transitLine.color), vehicleIcon: transitDetailViewModel.getSignString(transitDetails: transitionDetails)))
     }
     
 }

@@ -31,6 +31,12 @@
 		EE8F63F92AD4548E008A36A2 /* RouteRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63F82AD4548E008A36A2 /* RouteRecord.swift */; };
 		EE8F63FB2AD50200008A36A2 /* TransitDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F63FA2AD50200008A36A2 /* TransitDetailViewModel.swift */; };
 		EE8F63FF2AD50A25008A36A2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EE8F63FE2AD50A25008A36A2 /* .gitignore */; };
+		EE8F64032AD53CA2008A36A2 /* UserLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F64022AD53CA2008A36A2 /* UserLocationManager.swift */; };
+		EE8F64052AD587CE008A36A2 /* gtfs-realtime_1007_extension.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F64042AD587CE008A36A2 /* gtfs-realtime_1007_extension.pb.swift */; };
+		EE8F64082AD587E7008A36A2 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = EE8F64072AD587E7008A36A2 /* SwiftProtobuf */; };
+		EE8F640A2AD5934D008A36A2 /* StopAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F64092AD5934D008A36A2 /* StopAnnotation.swift */; };
+		EE8F640C2AD59879008A36A2 /* StopAnnotationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F640B2AD59879008A36A2 /* StopAnnotationDetailView.swift */; };
+		EEB11BBF2AD78B3700802F7E /* StopAnnotationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB11BBE2AD78B3700802F7E /* StopAnnotationDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +88,11 @@
 		EE8F63F82AD4548E008A36A2 /* RouteRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteRecord.swift; sourceTree = "<group>"; };
 		EE8F63FA2AD50200008A36A2 /* TransitDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitDetailViewModel.swift; sourceTree = "<group>"; };
 		EE8F63FE2AD50A25008A36A2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EE8F64022AD53CA2008A36A2 /* UserLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationManager.swift; sourceTree = "<group>"; };
+		EE8F64042AD587CE008A36A2 /* gtfs-realtime_1007_extension.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "gtfs-realtime_1007_extension.pb.swift"; path = "protoc-24/include/google/protobuf/gtfs-realtime_1007_extension.pb.swift"; sourceTree = SOURCE_ROOT; };
+		EE8F64092AD5934D008A36A2 /* StopAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopAnnotation.swift; sourceTree = "<group>"; };
+		EE8F640B2AD59879008A36A2 /* StopAnnotationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopAnnotationDetailView.swift; sourceTree = "<group>"; };
+		EEB11BBE2AD78B3700802F7E /* StopAnnotationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopAnnotationDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6480FB3F65EFDA552A6006E8 /* Pods_EasyRoutes_NSW.framework in Frameworks */,
+				EE8F64082AD587E7008A36A2 /* SwiftProtobuf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +168,7 @@
 			children = (
 				EE3EBEAB2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift */,
 				EE3EBEAF2ACFB965008FBDAA /* Assets.xcassets */,
+				EE8F64042AD587CE008A36A2 /* gtfs-realtime_1007_extension.pb.swift */,
 				EE3EBEDB2ACFC326008FBDAA /* Model */,
 				EE3EBEDC2ACFC32C008FBDAA /* View */,
 				EE3EBEDE2ACFC342008FBDAA /* ViewModel */,
@@ -196,8 +209,10 @@
 			isa = PBXGroup;
 			children = (
 				EE8F63EE2AD39B1D008A36A2 /* GoogleMapServiceManager.swift */,
+				EE8F64022AD53CA2008A36A2 /* UserLocationManager.swift */,
 				EE8F63F22AD3B06C008A36A2 /* SensitiveInfo.swift */,
 				EE8F63F02AD3A351008A36A2 /* Route.swift */,
+				EE8F64092AD5934D008A36A2 /* StopAnnotation.swift */,
 				EE8F63F82AD4548E008A36A2 /* RouteRecord.swift */,
 				EE8F63F42AD3CA59008A36A2 /* JasonTest.json */,
 			);
@@ -211,6 +226,7 @@
 				EE8F63F62AD44D6A008A36A2 /* TransitionDetailView.swift */,
 				EE8F63E02ACFDE09008A36A2 /* MainView.swift */,
 				EE8F63E22ACFDE3F008A36A2 /* MapView.swift */,
+				EE8F640B2AD59879008A36A2 /* StopAnnotationDetailView.swift */,
 				EE8F63EA2ACFE35D008A36A2 /* HistoryRoutesView.swift */,
 				EE8F63E42ACFDE58008A36A2 /* SettingView.swift */,
 			);
@@ -223,6 +239,7 @@
 				EE8F63E82ACFE166008A36A2 /* MapViewModel.swift */,
 				EE8F63EC2AD0465D008A36A2 /* TripPlanningViewModel.swift */,
 				EE8F63FA2AD50200008A36A2 /* TransitDetailViewModel.swift */,
+				EEB11BBE2AD78B3700802F7E /* StopAnnotationDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -245,6 +262,9 @@
 			dependencies = (
 			);
 			name = "EasyRoutes NSW";
+			packageProductDependencies = (
+				EE8F64072AD587E7008A36A2 /* SwiftProtobuf */,
+			);
 			productName = "EasyRoutes NSW";
 			productReference = EE3EBEA82ACFB964008FBDAA /* EasyRoutes NSW.app */;
 			productType = "com.apple.product-type.application";
@@ -317,6 +337,9 @@
 				Base,
 			);
 			mainGroup = EE3EBE9F2ACFB964008FBDAA;
+			packageReferences = (
+				EE8F64062AD587E7008A36A2 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+			);
 			productRefGroup = EE3EBEA92ACFB964008FBDAA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -404,8 +427,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE3EBEB52ACFB965008FBDAA /* Persistence.swift in Sources */,
+				EE8F64052AD587CE008A36A2 /* gtfs-realtime_1007_extension.pb.swift in Sources */,
 				EE8F63E32ACFDE3F008A36A2 /* MapView.swift in Sources */,
 				EE8F63F72AD44D6A008A36A2 /* TransitionDetailView.swift in Sources */,
+				EE8F640C2AD59879008A36A2 /* StopAnnotationDetailView.swift in Sources */,
 				EE8F63F32AD3B06C008A36A2 /* SensitiveInfo.swift in Sources */,
 				EE8F63ED2AD0465D008A36A2 /* TripPlanningViewModel.swift in Sources */,
 				EE8F63EB2ACFE35D008A36A2 /* HistoryRoutesView.swift in Sources */,
@@ -413,12 +438,15 @@
 				EE3EBEAE2ACFB964008FBDAA /* TripPlanningView.swift in Sources */,
 				EE8F63E52ACFDE58008A36A2 /* SettingView.swift in Sources */,
 				EE8F63F12AD3A351008A36A2 /* Route.swift in Sources */,
+				EE8F640A2AD5934D008A36A2 /* StopAnnotation.swift in Sources */,
 				EE3EBEB82ACFB965008FBDAA /* EasyRoutes_NSW.xcdatamodeld in Sources */,
+				EE8F64032AD53CA2008A36A2 /* UserLocationManager.swift in Sources */,
 				EE8F63FB2AD50200008A36A2 /* TransitDetailViewModel.swift in Sources */,
 				EE3EBEAC2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift in Sources */,
 				EE8F63F92AD4548E008A36A2 /* RouteRecord.swift in Sources */,
 				EE8F63E12ACFDE09008A36A2 /* MainView.swift in Sources */,
 				EE8F63E92ACFE166008A36A2 /* MapViewModel.swift in Sources */,
+				EEB11BBF2AD78B3700802F7E /* StopAnnotationDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,6 +775,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EE8F64062AD587E7008A36A2 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EE8F64072AD587E7008A36A2 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE8F64062AD587E7008A36A2 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EE3EBEB62ACFB965008FBDAA /* EasyRoutes_NSW.xcdatamodeld */ = {

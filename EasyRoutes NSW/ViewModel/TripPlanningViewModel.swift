@@ -82,7 +82,6 @@ class TripPlanningViewModel:NSObject, ObservableObject{
                                     for step in leg.steps{
                                         if let transitionDetail = step?.transitDetails{
                                             newRecord.allTransitions.append(TransitDetailsRecord(transitDetailRecord:transitionDetail))
-                                            print(transitionDetail)
                                         }
                                     }
                                 }

@@ -23,34 +23,39 @@ struct TransitionDetailView: View {
                     .foregroundColor(Color(hex: transitDetails.transitLine.color))
                 Text(viewModel.getTransportName(transitDetails:transitDetails))
                     .multilineTextAlignment(.center)
-                    .font(.caption)
+                    .font(viewModel.getTransportNameFont(transitDetails: transitDetails))
+                    .fontWeight(viewModel.getTransportNameWeight(transitDetails:transitDetails))
                     .frame(width:80)
             }
-            .padding(.horizontal,5)
+            .padding(.trailing,5)
             
             VStack(alignment: .leading, spacing: 5) {
                 Text(transitDetails.headsign)
                     .padding(.bottom,3)
                     .bold()
+                    .font(.system(size:17))
                 Text("From \(transitDetails.stopDetails.departureStop.name) To \(transitDetails.stopDetails.arrivalStop.name)")
                     .padding(.bottom,3)
+                    .font(.system(size:15))
                 HStack {
                     Text("Departure")
+                        .font(.system(size:15))
                     Spacer()
                     Text(transitDetails.localizedValues.departureTime.time.text)
+                        .font(.system(size:15))
                 }
                 
                 HStack {
                     Text("Arrival")
+                        .font(.system(size:15))
                     Spacer()
                     Text(transitDetails.localizedValues.arrivalTime.time.text)
+                        .font(.system(size:15))
                 }
             }
+            .padding(.trailing,12)
         }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 3)
+        .padding(.top,8)
     }
 }
 

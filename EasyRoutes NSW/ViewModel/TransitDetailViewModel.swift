@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class TransitDetailViewModel{
     
@@ -37,4 +38,21 @@ class TransitDetailViewModel{
             return transitDetails.headsign
         }
     }
+    
+    func getTransportNameWeight(transitDetails:TransitDetails) -> Font.Weight{
+        if let _ = transitDetails.transitLine.nameShort {
+            return .bold
+        }else{
+            return .regular
+        }
+    }
+    
+    func getTransportNameFont(transitDetails: TransitDetails) -> Font{
+        if let _ = transitDetails.transitLine.nameShort {
+            return .title3
+        }else{
+            return .caption
+        }
+    }
+    
 }

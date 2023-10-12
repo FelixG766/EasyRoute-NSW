@@ -23,126 +23,135 @@ struct TripPlanningView: View {
     
     var body: some View {
         NavigationView {
-                VStack{
-                    HStack{
-                        VStack(spacing: 25) {
-                            Image(systemName: "circle.circle")
-                                .imageScale(.small)
+            VStack{
+                HStack{
+                    VStack(spacing: 25) {
+                        Image(systemName: "circle.circle")
+                            .imageScale(.small)
+                            .foregroundColor(.blue)
+                            .font(.title)
+                        Image(systemName: "pin.fill")
+                            .foregroundColor(.blue)
+                            .font(.title)
+                            .imageScale(.small)
+                    }
+                    VStack{
+                        TextField("From", text: $tripViewModel.startLocationString)
+                            .padding(.vertical,12)
+                            .padding(.horizontal)
+                            .background{
+                                RoundedRectangle(cornerRadius: 10,style:.continuous)
+                                    .strokeBorder(.gray)
+                            }
+                            .onChange(of: tripViewModel.startLocationString) { newValue in
+                                if !isLocationListTapped{
+                                    tripViewModel.availableRoutes = []
+                                    isStartLocation = true
+                                    tripViewModel.suggestLocations(using:newValue)
+                                }else{
+                                    tripViewModel.searchResults = []
+                                    isLocationListTapped = false
+                                }
+                            }
+                        TextField("To", text: $tripViewModel.destinationString)
+                            .padding(.vertical,12)
+                            .padding(.horizontal)
+                            .background{
+                                RoundedRectangle(cornerRadius: 10,style:.continuous)
+                                    .strokeBorder(.gray)
+                            }
+                            .onChange(of: tripViewModel.destinationString) { newValue in
+                                if !isLocationListTapped{
+                                    tripViewModel.availableRoutes = []
+                                    isStartLocation = false
+                                    tripViewModel.suggestLocations(using:newValue)
+                                }else{
+                                    tripViewModel.searchResults = []
+                                    isLocationListTapped = false
+                                }
+                            }
+                    }
+                    VStack(spacing:25){
+                        Button(action: {
+                            tripViewModel.requestLocation()
+                        }) {
+                            Image(systemName: "location.fill")
                                 .foregroundColor(.blue)
                                 .font(.title)
-                            Image(systemName: "pin.fill")
+                                .imageScale(.small)
+                        }
+                        Button(action: {
+                            tripViewModel.switchLocation()
+                        }) {
+                            Image(systemName: "arrow.up.arrow.down")
                                 .foregroundColor(.blue)
                                 .font(.title)
                                 .imageScale(.small)
                         }
-                        VStack{
-                            TextField("From", text: $tripViewModel.startLocationString)
-                                .padding(.vertical,12)
-                                .padding(.horizontal)
-                                .background{
-                                    RoundedRectangle(cornerRadius: 10,style:.continuous)
-                                        .strokeBorder(.gray)
-                                }
-                                .onChange(of: tripViewModel.startLocationString) { newValue in
-                                    if !isLocationListTapped{
-                                        isStartLocation = true
-                                        tripViewModel.suggestLocations(using:newValue)
-                                    }else{
-                                        tripViewModel.searchResults = []
-                                        isLocationListTapped = false
-                                    }
-                                }
-                            TextField("To", text: $tripViewModel.destinationString)
-                                .padding(.vertical,12)
-                                .padding(.horizontal)
-                                .background{
-                                    RoundedRectangle(cornerRadius: 10,style:.continuous)
-                                        .strokeBorder(.gray)
-                                }
-                                .onChange(of: tripViewModel.destinationString) { newValue in
-                                    if !isLocationListTapped{
-                                        isStartLocation = false
-                                        tripViewModel.suggestLocations(using:newValue)
-                                    }else{
-                                        tripViewModel.searchResults = []
-                                        isLocationListTapped = false
-                                    }
-                                }
-                        }
-                        VStack(spacing:25){
-                            Button(action: {
-                                tripViewModel.requestLocation()
-                            }) {
-                                Image(systemName: "location.fill")
-                                    .foregroundColor(.blue)
-                                    .font(.title)
-                                    .imageScale(.small)
-                            }
-                            Button(action: {
-                                tripViewModel.switchLocation()
-                            }) {
-                                Image(systemName: "arrow.up.arrow.down")
-                                    .foregroundColor(.blue)
-                                    .font(.title)
-                                    .imageScale(.small)
-                            }
-                        }
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 16)
-                    
-                    Divider()
-                    if let suggestions = tripViewModel.searchResults, !suggestions.isEmpty{
-                        List(suggestions, id: \.self) { suggestion in
-                            HStack(spacing:10){
-                                Image(systemName: "mappin.and.ellipse")
-                                    .imageScale(.large)
-                                    .padding(.trailing,10)
-                                VStack(alignment:.leading,spacing:10){
-                                    Text(suggestion.name ?? "")
-                                        .font(.subheadline.bold())
-                                    Text(suggestion.locality ?? "")
-                                        .font(.caption)
-                                        .foregroundColor(.gray)
-                                }
-                            }
-                            .onTapGesture {
-//                                mapViewModel.addDragablePin(suggestedPlacemark: suggestion)
-                                tripViewModel.currentLocation = suggestion.location?.coordinate
-                                if isStartLocation! {
-                                    tripViewModel.startLocationString = suggestion.name ?? ""
-                                    tripViewModel.startLocation = suggestion
-                                } else{
-                                    tripViewModel.destinationString = suggestion.name ?? ""
-                                    tripViewModel.destination = suggestion
-                                }
-                                
-                                //clear suggest list after selecting anyone suggestion
-                                isLocationListTapped = true;
-                                tripViewModel.availableRoutes = []
-                                tripViewModel.calculateRoute()
-//                                selectedTab = 1
-                                
-                            }
-                        }
-                        .listStyle(.plain)
-                    }
-                    List(tripViewModel.availableRoutes) { routeRecord in
-                        Section(header: Text("Route Details")) {
-                            ForEach(routeRecord.allTransitions) { transitionRecord in
-                                TransitionDetailView(transitDetails: transitionRecord.transitDetailRecord)
-                            }
-                        }
-                    }
-                    Spacer()
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarTitle("Route Planner", displayMode: .inline)
-                Image(systemName: "phone")
+                .padding(.horizontal, 16)
+                .padding(.vertical, 16)
+                
+                Divider()
+                
+                if let suggestions = tripViewModel.searchResults, !suggestions.isEmpty{
+                    List(suggestions, id: \.self) { suggestion in
+                        HStack(spacing:10){
+                            Image(systemName: "mappin.and.ellipse")
+                                .imageScale(.large)
+                                .padding(.trailing,10)
+                            VStack(alignment:.leading,spacing:10){
+                                Text(suggestion.name ?? "")
+                                    .font(.subheadline.bold())
+                                Text(suggestion.locality ?? "")
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        .onTapGesture {
+                            //                                mapViewModel.addDragablePin(suggestedPlacemark: suggestion)
+                            isLocationListTapped = true;
+                            tripViewModel.searchResults = []
+                            tripViewModel.currentLocation = suggestion.location?.coordinate
+                            if isStartLocation! {
+                                tripViewModel.startLocationString = suggestion.name ?? ""
+                                tripViewModel.startLocation = suggestion
+                            } else{
+                                tripViewModel.destinationString = suggestion.name ?? ""
+                                tripViewModel.destination = suggestion
+                            }
+                            
+                            //clear suggest list after selecting anyone suggestion
+                            tripViewModel.availableRoutes = []
+                            tripViewModel.calculateRoute()
+                            //                                selectedTab = 1
+                            
+                        }
+                    }
+                    .listStyle(.plain)
+                }
+                
+                List(tripViewModel.availableRoutes) { routeRecord in
+                    Section(header: Text("Route Details")) {
+                        ForEach(routeRecord.allTransitions) { transitionRecord in
+                            TransitionDetailView(transitDetails: transitionRecord.transitDetailRecord)
+                                .onTapGesture {
+                                    mapViewModel.viewTransitionDetailsOnMap(transitionDetails:transitionRecord.transitDetailRecord)
+                                    selectedTab = 1
+                                }
+                        }
+                    }
+                }
+                Spacer()
             }
-            .onTapGesture {
-                // Resign the first responder status (dismiss keyboard) on tap
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitle("Route Planner", displayMode: .inline)
+            Image(systemName: "phone")
+        }
+        .onTapGesture {
+            // Resign the first responder status (dismiss keyboard) on tap
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
     }
 }

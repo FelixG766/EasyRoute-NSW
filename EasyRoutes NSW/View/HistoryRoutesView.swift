@@ -6,38 +6,38 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HistoryRoutesView: View {
-    @Environment(\.managedObjectContext) private var viewContext
     
-        @FetchRequest(
-            sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-            animation: .default)
-        private var items: FetchedResults<Item>
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        animation: .default)
+    private var items: FetchedResults<Item>
     
     var body: some View {
         NavigationView {
-                        List {
-                            ForEach(items) { item in
-                                NavigationLink {
-                                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                                } label: {
-                                    Text(item.timestamp!, formatter: itemFormatter)
-                                }
-                            }
-                            .onDelete(perform: deleteItems)
-                        }
-                        .toolbar {
-                            ToolbarItem(placement: .navigationBarTrailing) {
-                                EditButton()
-                            }
-                            ToolbarItem {
-                                Button(action: addItem) {
-                                    Label("Add Item", systemImage: "plus")
-                                }
-                            }
-                        }
-            Text("Select an item")
+            List {
+                ForEach(items) { item in
+                    NavigationLink {
+                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                    } label: {
+                        Text(item.timestamp!, formatter: itemFormatter)
+                    }
+                }
+                .onDelete(perform: deleteItems)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+                ToolbarItem {
+                    Button(action: addItem) {
+                        Label("Add Item", systemImage: "plus")
+                    }
+                }
+            }
         }
     }
 
@@ -72,6 +72,7 @@ struct HistoryRoutesView: View {
         }
     }
 }
+
 
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()

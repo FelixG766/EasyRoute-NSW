@@ -12,12 +12,50 @@ struct MapView: View {
     
     @ObservedObject var mapViewModel:MapViewModel
     @ObservedObject var tripViewModel:TripPlanningViewModel
+    @State private var isShowingUserLocation = false
     @Binding var selectedTab:Int
+    @State private var selectedAnnotation: StopAnnotation?
     
     var body: some View {
-        Map(coordinateRegion: $mapViewModel.focusedRegion, showsUserLocation: true)
-            .navigationBarTitle("Map View")
-            .ignoresSafeArea()
+        NavigationView{
+            ZStack(alignment: .bottomTrailing) {
+                Map(coordinateRegion: $mapViewModel.focusedRegion, showsUserLocation: isShowingUserLocation, annotationItems:mapViewModel.transitAnnotation){ annotation in
+                    MapAnnotation(coordinate: annotation.coordinate) {
+                        NavigationLink(destination:StopAnnotationDetailView(stopAnnotation: annotation)){
+                            VStack{
+                                Image(systemName: annotation.vehicleIcon)
+                                    .foregroundColor(.blue)
+                                    .imageScale(.large)
+                            }
+                        }
+                    }
+                    
+                }
+                .onAppear {
+                    mapViewModel.updateRegionForUserLocation(isShowingUserLocation)
+                }
+                .onDisappear {
+                    isShowingUserLocation = false
+                    mapViewModel.updateRegionForUserLocation(false)
+                }
+                .navigationBarTitle("Map View")
+                .ignoresSafeArea()
+                
+                Button(action: {
+                    isShowingUserLocation.toggle()
+                    mapViewModel.updateRegionForUserLocation(isShowingUserLocation)
+                }) {
+                    Circle()
+                        .frame(width: 40, height: 40)
+                        .foregroundColor(Color.blue)
+                        .overlay(
+                            Image(systemName: "location")
+                                .foregroundColor(.white)
+                        )
+                }
+                .padding()
+            }
+        }
     }
 }
 
