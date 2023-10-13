@@ -12,8 +12,9 @@ import CoreLocation
 
 struct TripPlanningView: View {
     
-    @ObservedObject var tripViewModel:TripPlanningViewModel
-    @ObservedObject var mapViewModel:MapViewModel
+    @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var tripViewModel:TripPlanningViewModel
+    @EnvironmentObject var mapViewModel:MapViewModel
     @State private var showingLocationPicker = false
     @State private var currentLocation: CLLocationCoordinate2D?
     @Binding var selectedTab:Int
@@ -133,11 +134,22 @@ struct TripPlanningView: View {
                 }
                 
                 List(tripViewModel.availableRoutes) { routeRecord in
-                    Section(header: Text("Route Details")) {
+                    Section(header:
+                                HStack{
+                        Text("Route Details")
+                        Spacer()
+                        Button {
+                            tripViewModel.trackRoute(routeRecord: routeRecord,context:viewContext)
+                        } label: {
+                            Image(systemName: "square.and.arrow.down")
+                        }
+                    }
+                        .padding(.trailing,10)
+                    ) {
                         ForEach(routeRecord.allTransitions) { transitionRecord in
-                            TransitionDetailView(transitDetails: transitionRecord.transitDetailRecord)
+                            TransitionDetailView(transitDetails: transitionRecord.transitDetails)
                                 .onTapGesture {
-                                    mapViewModel.viewTransitionDetailsOnMap(transitionDetails:transitionRecord.transitDetailRecord)
+                                    mapViewModel.viewTransitionDetailsOnMap(transitionDetails:transitionRecord.transitDetails)
                                     selectedTab = 1
                                 }
                         }
@@ -147,7 +159,6 @@ struct TripPlanningView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarTitle("Route Planner", displayMode: .inline)
-            Image(systemName: "phone")
         }
         .onTapGesture {
             // Resign the first responder status (dismiss keyboard) on tap
@@ -164,6 +175,8 @@ struct ContentView_Previews: PreviewProvider {
         )
         let tripViewModel = TripPlanningViewModel()
         let mapViewModel = MapViewModel()
-        TripPlanningView(tripViewModel: tripViewModel, mapViewModel: mapViewModel, selectedTab: bindingTab)
+        TripPlanningView(selectedTab: bindingTab)
+            .environmentObject(tripViewModel)
+            .environmentObject(mapViewModel)
     }
 }

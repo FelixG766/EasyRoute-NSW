@@ -16,25 +16,29 @@ struct MainView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             Group{
-                TripPlanningView(tripViewModel: tripViewModel, mapViewModel: mapViewModel, selectedTab: $selectedTab)
-//                    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+                TripPlanningView(selectedTab: $selectedTab)
                     .tabItem {
                         Image(systemName: "character.book.closed.fill")
                         Text("Trip Planer")
                     }
+                    .environmentObject(tripViewModel)
+                    .environmentObject(mapViewModel)
                     .tag(0)
                 
-                MapView(mapViewModel:mapViewModel,tripViewModel:tripViewModel,selectedTab: $selectedTab)
+                MapView(selectedTab: $selectedTab)
                     .tabItem {
                         Image(systemName: "map")
                         Text("Map View")
                     }
+                    .environmentObject(tripViewModel)
+                    .environmentObject(mapViewModel)
                     .tag(1)
-                HistoryRoutesView()
+                HistoryRoutesView(selectedTab: $selectedTab)
                     .tabItem{
                         Image(systemName: "clock")
                         Text("Saved Routes")
                     }
+                    .environmentObject(mapViewModel)
                     .tag(2)
                 
                 SettingView()

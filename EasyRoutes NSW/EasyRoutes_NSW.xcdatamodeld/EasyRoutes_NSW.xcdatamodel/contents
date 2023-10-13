@@ -1,9 +1,79 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="AgencyItem" representedClassName="AgencyItem" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uri" optional="YES" attributeType="String"/>
+        <relationship name="parentTransitLine" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransitLineItem" inverseName="agencies" inverseEntity="TransitLineItem"/>
+    </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
-    <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-    </elements>
+    <entity name="LatLngItem" representedClassName="LatLngItem" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="parentStop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocationItem" inverseName="latLng" inverseEntity="LocationItem"/>
+    </entity>
+    <entity name="LocalizedValuesItem" representedClassName="LocalizedValuesItem" syncable="YES" codeGenerationType="class">
+        <relationship name="arrivalTime" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeObjectItem" inverseName="parentArrival" inverseEntity="TimeObjectItem"/>
+        <relationship name="departureTime" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeObjectItem" inverseName="parentDeparture" inverseEntity="TimeObjectItem"/>
+        <relationship name="parentTransitDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransitionRecordItem" inverseName="localizedValues" inverseEntity="TransitionRecordItem"/>
+    </entity>
+    <entity name="LocationItem" representedClassName="LocationItem" syncable="YES" codeGenerationType="class">
+        <relationship name="latLng" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LatLngItem" inverseName="parentStop" inverseEntity="LatLngItem"/>
+        <relationship name="parentStopDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StopItem" inverseName="location" inverseEntity="StopItem"/>
+    </entity>
+    <entity name="NameStringItem" representedClassName="NameStringItem" syncable="YES" codeGenerationType="class">
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="parentVehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VehicleItem" inverseName="name" inverseEntity="VehicleItem"/>
+    </entity>
+    <entity name="RouteRecordItem" representedClassName="RouteRecordItem" syncable="YES" codeGenerationType="class">
+        <relationship name="transitionsDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransitionRecordItem" inverseName="parentRoute" inverseEntity="TransitionRecordItem"/>
+    </entity>
+    <entity name="StopDetailsItem" representedClassName="StopDetailsItem" syncable="YES" codeGenerationType="class">
+        <attribute name="arrivalTime" optional="YES" attributeType="String"/>
+        <attribute name="departureTime" optional="YES" attributeType="String"/>
+        <relationship name="arrivalStop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StopItem" inverseName="parentStopDetails" inverseEntity="StopItem"/>
+        <relationship name="departureStop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StopItem" inverseName="parentStopDetails1" inverseEntity="StopItem"/>
+        <relationship name="parentTransitDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransitionRecordItem" inverseName="stopDetails" inverseEntity="TransitionRecordItem"/>
+    </entity>
+    <entity name="StopItem" representedClassName="StopItem" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocationItem" inverseName="parentStopDetails" inverseEntity="LocationItem"/>
+        <relationship name="parentStopDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StopDetailsItem" inverseName="arrivalStop" inverseEntity="StopDetailsItem"/>
+        <relationship name="parentStopDetails1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StopDetailsItem" inverseName="departureStop" inverseEntity="StopDetailsItem"/>
+    </entity>
+    <entity name="TimeObjectItem" representedClassName="TimeObjectItem" syncable="YES" codeGenerationType="class">
+        <attribute name="timeZone" optional="YES" attributeType="String"/>
+        <relationship name="parentArrival" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocalizedValuesItem" inverseName="arrivalTime" inverseEntity="LocalizedValuesItem"/>
+        <relationship name="parentDeparture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocalizedValuesItem" inverseName="departureTime" inverseEntity="LocalizedValuesItem"/>
+        <relationship name="time" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeStringItem" inverseName="parentTimeObject" inverseEntity="TimeStringItem"/>
+    </entity>
+    <entity name="TimeStringItem" representedClassName="TimeStringItem" syncable="YES" codeGenerationType="class">
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="parentTimeObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeObjectItem" inverseName="time" inverseEntity="TimeObjectItem"/>
+    </entity>
+    <entity name="TransitionRecordItem" representedClassName="TransitionRecordItem" syncable="YES" codeGenerationType="class">
+        <attribute name="headSign" optional="YES" attributeType="String"/>
+        <attribute name="stopCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="localizedValues" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocalizedValuesItem" inverseName="parentTransitDetails" inverseEntity="LocalizedValuesItem"/>
+        <relationship name="parentRoute" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RouteRecordItem" inverseName="transitionsDetails" inverseEntity="RouteRecordItem"/>
+        <relationship name="stopDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StopDetailsItem" inverseName="parentTransitDetails" inverseEntity="StopDetailsItem"/>
+        <relationship name="transitLine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransitLineItem" inverseName="parentTransitDetails" inverseEntity="TransitLineItem"/>
+    </entity>
+    <entity name="TransitLineItem" representedClassName="TransitLineItem" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="nameShort" optional="YES" attributeType="String"/>
+        <attribute name="textColor" optional="YES" attributeType="String"/>
+        <relationship name="agencies" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AgencyItem" inverseName="parentTransitLine" inverseEntity="AgencyItem"/>
+        <relationship name="parentTransitDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransitionRecordItem" inverseName="transitLine" inverseEntity="TransitionRecordItem"/>
+        <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VehicleItem" inverseName="parentTransitLine" inverseEntity="VehicleItem"/>
+    </entity>
+    <entity name="VehicleItem" representedClassName="VehicleItem" syncable="YES" codeGenerationType="class">
+        <attribute name="iconUri" optional="YES" attributeType="String"/>
+        <attribute name="localIconUri" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="name" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NameStringItem" inverseName="parentVehicle" inverseEntity="NameStringItem"/>
+        <relationship name="parentTransitLine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransitLineItem" inverseName="vehicle" inverseEntity="TransitLineItem"/>
+    </entity>
 </model>

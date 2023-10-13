@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CoreLocation
 
 struct StopAnnotationDetailView: View {
     
@@ -53,7 +53,7 @@ struct StopAnnotationDetailView: View {
                 }
                 Text("Will arrival at \(stopAnnotation.sydneyTime)")
             }else{
-                HStack{
+                VStack(spacing:10){
                     Text("Please catch")
                         .font(.title2)
                     Text(stopAnnotation.transitLine)
@@ -73,12 +73,15 @@ struct StopAnnotationDetailView: View {
                     Text(remainingTime)
                         .font(.title)
                 }
+                VStack(spacing:5){
+                    Text("Walking there need")
+                        .font(.title)
+                    Text(viewModel.calculateWalkingDistance(to:CLLocationCoordinate2D(latitude: stopAnnotation.stop.location.latLng.latitude, longitude: stopAnnotation.stop.location.latLng.longitude)))
+                        .font(.title)
+                }
                 .padding()
             }
             Spacer()
-        }
-        .onAppear{
-            print(currentTime,stopAnnotation.sydneyTime)
         }
         .background(Color.white)
         .cornerRadius(10)

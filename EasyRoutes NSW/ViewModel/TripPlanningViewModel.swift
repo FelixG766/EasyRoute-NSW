@@ -10,6 +10,7 @@ import CoreLocation
 import SwiftUI
 import Contacts
 import MapKit
+import CoreData
 
 class TripPlanningViewModel:NSObject, ObservableObject{
     
@@ -26,6 +27,7 @@ class TripPlanningViewModel:NSObject, ObservableObject{
     @State var currentLocation: CLLocationCoordinate2D? = nil
     @State var locationManager = CLLocationManager()
     private let googleMapServiceManager = GoogleMapServiceManager()
+    private let persistenceController = PersistenceController.shared
     
     override init() {
         super.init()
@@ -76,12 +78,12 @@ class TripPlanningViewModel:NSObject, ObservableObject{
                     // Handle the routes here
                     for route in routesResponse.routes {
                         if let route = route{
-                            var newRecord = RouteRecord(availableRoute: route)
+                            var newRecord = RouteRecord()
                             for leg in route.legs{
                                 if let leg = leg{
                                     for step in leg.steps{
                                         if let transitionDetail = step?.transitDetails{
-                                            newRecord.allTransitions.append(TransitDetailsRecord(transitDetailRecord:transitionDetail))
+                                            newRecord.allTransitions.append(TransitDetailsRecord(transitDetails:transitionDetail))
                                         }
                                     }
                                 }
@@ -92,6 +94,10 @@ class TripPlanningViewModel:NSObject, ObservableObject{
                 }
             }
         }
+    }
+    
+    func trackRoute(routeRecord:RouteRecord,context:NSManagedObjectContext){
+        persistenceController.addItem(routeRecord: routeRecord,context: context)
     }
 }
 

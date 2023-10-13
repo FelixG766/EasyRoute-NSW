@@ -10,8 +10,8 @@ import MapKit
 
 struct MapView: View {
     
-    @ObservedObject var mapViewModel:MapViewModel
-    @ObservedObject var tripViewModel:TripPlanningViewModel
+    @EnvironmentObject var mapViewModel:MapViewModel
+    @EnvironmentObject var tripViewModel:TripPlanningViewModel
     @State private var isShowingUserLocation = false
     @Binding var selectedTab:Int
     @State private var selectedAnnotation: StopAnnotation?
@@ -29,7 +29,6 @@ struct MapView: View {
                             }
                         }
                     }
-                    
                 }
                 .onAppear {
                     mapViewModel.updateRegionForUserLocation(isShowingUserLocation)
@@ -73,6 +72,8 @@ struct MapView_Previews: PreviewProvider {
         )
         let tripViewModel = TripPlanningViewModel()
         let mapViewModel = MapViewModel()
-        MapView(mapViewModel:mapViewModel,tripViewModel:tripViewModel,selectedTab: bindingTab)
+        MapView(selectedTab: bindingTab)
+            .environmentObject(tripViewModel)
+            .environmentObject(mapViewModel)
     }
 }

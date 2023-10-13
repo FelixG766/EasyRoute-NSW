@@ -14,7 +14,6 @@ struct RouteResponse:Codable {
 struct Route: Codable,Identifiable{
     let legs: [Leg?]
     var id: UUID {
-        // You can use any combination of properties to create a unique identifier
         return UUID()
     }
 }

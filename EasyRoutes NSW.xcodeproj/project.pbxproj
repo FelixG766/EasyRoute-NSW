@@ -37,6 +37,7 @@
 		EE8F640A2AD5934D008A36A2 /* StopAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F64092AD5934D008A36A2 /* StopAnnotation.swift */; };
 		EE8F640C2AD59879008A36A2 /* StopAnnotationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F640B2AD59879008A36A2 /* StopAnnotationDetailView.swift */; };
 		EEB11BBF2AD78B3700802F7E /* StopAnnotationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB11BBE2AD78B3700802F7E /* StopAnnotationDetailViewModel.swift */; };
+		EEB11BC32AD8C83300802F7E /* HistoryRouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB11BC22AD8C83300802F7E /* HistoryRouteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,9 @@
 		EE8F64092AD5934D008A36A2 /* StopAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopAnnotation.swift; sourceTree = "<group>"; };
 		EE8F640B2AD59879008A36A2 /* StopAnnotationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopAnnotationDetailView.swift; sourceTree = "<group>"; };
 		EEB11BBE2AD78B3700802F7E /* StopAnnotationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopAnnotationDetailViewModel.swift; sourceTree = "<group>"; };
+		EEB11BC22AD8C83300802F7E /* HistoryRouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRouteViewModel.swift; sourceTree = "<group>"; };
+		EEB11BC42AD90A5C00802F7E /* EasyRoutes NSW.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "EasyRoutes NSW.entitlements"; sourceTree = "<group>"; };
+		EEB11BC52AD91B1000802F7E /* EasyRoutes-NSW-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "EasyRoutes-NSW-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,8 @@
 		EE3EBEAA2ACFB964008FBDAA /* EasyRoutes NSW */ = {
 			isa = PBXGroup;
 			children = (
+				EEB11BC52AD91B1000802F7E /* EasyRoutes-NSW-Info.plist */,
+				EEB11BC42AD90A5C00802F7E /* EasyRoutes NSW.entitlements */,
 				EE3EBEAB2ACFB964008FBDAA /* EasyRoutes_NSWApp.swift */,
 				EE3EBEAF2ACFB965008FBDAA /* Assets.xcassets */,
 				EE8F64042AD587CE008A36A2 /* gtfs-realtime_1007_extension.pb.swift */,
@@ -237,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				EE8F63E82ACFE166008A36A2 /* MapViewModel.swift */,
+				EEB11BC22AD8C83300802F7E /* HistoryRouteViewModel.swift */,
 				EE8F63EC2AD0465D008A36A2 /* TripPlanningViewModel.swift */,
 				EE8F63FA2AD50200008A36A2 /* TransitDetailViewModel.swift */,
 				EEB11BBE2AD78B3700802F7E /* StopAnnotationDetailViewModel.swift */,
@@ -435,6 +442,7 @@
 				EE8F63ED2AD0465D008A36A2 /* TripPlanningViewModel.swift in Sources */,
 				EE8F63EB2ACFE35D008A36A2 /* HistoryRoutesView.swift in Sources */,
 				EE8F63EF2AD39B1D008A36A2 /* GoogleMapServiceManager.swift in Sources */,
+				EEB11BC32AD8C83300802F7E /* HistoryRouteViewModel.swift in Sources */,
 				EE3EBEAE2ACFB964008FBDAA /* TripPlanningView.swift in Sources */,
 				EE8F63E52ACFDE58008A36A2 /* SettingView.swift in Sources */,
 				EE8F63F12AD3A351008A36A2 /* Route.swift in Sources */,
@@ -603,24 +611,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "EasyRoutes NSW/EasyRoutes NSW.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EasyRoutes NSW/Preview Content\"";
 				DEVELOPMENT_TEAM = 37NUP3CV36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EasyRoutes-NSW-Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide you with accurate route information.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "AdvancedIOSProject.EasyRoutes-NSW";
+				PRODUCT_BUNDLE_IDENTIFIER = AdvancedIOSProject.EasyRoutes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -634,24 +644,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "EasyRoutes NSW/EasyRoutes NSW.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EasyRoutes NSW/Preview Content\"";
 				DEVELOPMENT_TEAM = 37NUP3CV36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EasyRoutes-NSW-Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide you with accurate route information.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "AdvancedIOSProject.EasyRoutes-NSW";
+				PRODUCT_BUNDLE_IDENTIFIER = AdvancedIOSProject.EasyRoutes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

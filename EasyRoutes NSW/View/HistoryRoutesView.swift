@@ -11,79 +11,54 @@ import Combine
 struct HistoryRoutesView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
+    @ObservedObject var historyRouteViewModel = HistoryRouteViewModel()
+    @EnvironmentObject var mapViewModel:MapViewModel
+    @Binding var selectedTab:Int
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+        NavigationView{
+            List(historyRouteViewModel.savedRoutes) { routeRecord in
+                Section(header:
+                            HStack{
+                    Text("Route Details")
+                    Spacer()
+                    Button {
+                        //Delete
+                        PersistenceController.shared.deleteRouteHistoryRecord(routeRecord:routeRecord,context: viewContext)
+                        historyRouteViewModel.updateHistoryRecords(context: viewContext)
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        Image(systemName: "delete.left")
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    .padding(.trailing,10)
+                ) {
+                    ForEach(routeRecord.allTransitions) { transitionRecord in
+                        TransitionDetailView(transitDetails: transitionRecord.transitDetails)
+                            .onTapGesture {
+                                mapViewModel.viewTransitionDetailsOnMap(transitionDetails:transitionRecord.transitDetails)
+                                selectedTab = 1
+                            }
                     }
                 }
             }
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            .onAppear{
+                historyRouteViewModel.updateHistoryRecords(context: viewContext)
             }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            .navigationTitle("Route History")
         }
     }
 }
 
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
 struct HistoryRoutesView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryRoutesView()
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        let bindingTab = Binding<Int>(
+            get: { 2 }, // Initial value
+            set: { _ in }
+        )
+        let mapViewModel = MapViewModel()
+        let persistenceController = PersistenceController.shared
+        HistoryRoutesView(selectedTab: bindingTab)
+            .environmentObject(mapViewModel)
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
 }
