@@ -82,7 +82,7 @@ class HistoryRouteViewModel:ObservableObject{
                         )
                     )
                     
-                    var transitiDetailsRecord = TransitDetailsRecord(coreDataID:transitionRecordItem.objectID,transitDetails: transitDetails)
+                    let transitiDetailsRecord = TransitDetailsRecord(coreDataID:transitionRecordItem.objectID,transitDetails: transitDetails)
                     transitDetailsRecords.append(transitiDetailsRecord)
                 }
             }

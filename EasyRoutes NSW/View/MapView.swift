@@ -37,7 +37,6 @@ struct MapView: View {
                     isShowingUserLocation = false
                     mapViewModel.updateRegionForUserLocation(false)
                 }
-                .navigationBarTitle("Map View")
                 .ignoresSafeArea()
                 
                 Button(action: {

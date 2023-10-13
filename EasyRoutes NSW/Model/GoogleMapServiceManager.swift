@@ -35,7 +35,7 @@ struct GoogleMapServiceManager{
             "transitPreferences": [
                 "routingPreference": "LESS_WALKING",
                 "allowedTravelModes": ["TRAIN"]
-            ]
+            ] as [String : Any]
         ]
         
         // Define your headers
