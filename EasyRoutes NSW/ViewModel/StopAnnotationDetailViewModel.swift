@@ -23,6 +23,7 @@ class StopAnnotationDetailViewModel: NSObject{
         locationManager.startUpdatingLocation()
     }
     
+    //MARK: - Estimate time walking from current location to departure stop
     func calculateWalkingDistance(to targetLocation:CLLocationCoordinate2D) -> String{
         if let currentLocation = currentLocation {
             let request = MKDirections.Request()
@@ -43,6 +44,7 @@ class StopAnnotationDetailViewModel: NSObject{
         return formattedTime
     }
     
+    //MARK: - Convert time for calculation purposes
     func formatTime(_ time: TimeInterval) -> String {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]

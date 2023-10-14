@@ -23,7 +23,6 @@ struct HistoryRoutesView: View {
                     Text("Route Details")
                     Spacer()
                     Button {
-                        //Delete
                         PersistenceController.shared.deleteRouteHistoryRecord(routeRecord:routeRecord,context: viewContext)
                         historyRouteViewModel.updateHistoryRecords(context: viewContext)
                     } label: {
@@ -44,7 +43,8 @@ struct HistoryRoutesView: View {
             .onAppear{
                 historyRouteViewModel.updateHistoryRecords(context: viewContext)
             }
-            .navigationTitle("Route History")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitle("Route History", displayMode: .inline)
         }
     }
 }

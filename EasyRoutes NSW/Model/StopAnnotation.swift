@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 import SwiftUI
 
+//MARK: - Stop annotation item to be displayed on mapview
 struct StopAnnotation:Identifiable{
     var id = UUID()
     var stopType: String

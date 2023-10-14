@@ -8,8 +8,28 @@
 import SwiftUI
 
 struct SettingView: View {
+    
+    @AppStorage("darkModeEnabled") var darkModeEnabled = false
+    @State private var pushNotificationsEnabled = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            Form{
+                Section(header: Text("General")) {
+                    HStack{
+                        Image(systemName: "moon")
+                            .padding(.trailing)
+                            .foregroundColor(.blue)
+                        Toggle("Dark Mode", isOn: $darkModeEnabled)
+                            .onChange(of: darkModeEnabled){newVal in
+                                AppSettings.toggleDarkMode(newVal: newVal)
+                            }
+                    }
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitle("Settings", displayMode: .inline)
+        }
     }
 }
 

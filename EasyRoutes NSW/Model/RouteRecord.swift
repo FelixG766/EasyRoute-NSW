@@ -8,10 +8,10 @@
 import Foundation
 import CoreData
 
+//MARK: - Identifiable route record item to be used for initialise list view
 struct RouteRecord:Identifiable{
     var id = UUID()
     var coreDataID:NSManagedObjectID?
-//    var availableRoute:Route
     var allTransitions:[TransitDetailsRecord] = []
 }
 

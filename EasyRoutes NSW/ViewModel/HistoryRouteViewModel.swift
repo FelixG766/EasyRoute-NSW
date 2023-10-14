@@ -14,6 +14,7 @@ class HistoryRouteViewModel:ObservableObject{
     
     private let persistenceController = PersistenceController.shared
     
+    //MARK: - Retrive all saved record from managed object and saved to array for display in a list
     func updateHistoryRecords(context:NSManagedObjectContext){
         savedRoutes = []
         for routeRecordItem in persistenceController.fetchAllRouteRecords(context: context){

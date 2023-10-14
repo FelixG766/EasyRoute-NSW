@@ -34,16 +34,26 @@ class TripPlanningViewModel:NSObject, ObservableObject{
         locationManager.delegate = self
     }
     
+    //MARK: - Retrieve user current location
     func requestLocation(){
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
     }
+    
+    //MARK: - Switch departure and arrival location
     func switchLocation(){
-        let temp = startLocationString
+        //switch location string
+        let tempLocationString = startLocationString
         startLocationString = destinationString
-        destinationString = temp
+        destinationString = tempLocationString
+        //switch location placemark
+        let tempPlaceMark = startLocation
+        startLocation = destination
+        destination = tempPlaceMark
+        calculateRoute()
     }
     
+    //MARK: - Suggest location based on user input
     func suggestLocations(using queryVal:String){
         if(queryVal != ""){
             Task{
@@ -67,8 +77,10 @@ class TripPlanningViewModel:NSObject, ObservableObject{
         }
     }
     
+    //MARK: - calculate route from departure to destination
     func calculateRoute(){
         if let startLocation = startLocation, let destination = destination {
+            self.availableRoutes = []
             googleMapServiceManager.calculateRoute(startPlace: startLocation, destination: destination) { (routesResponse, error) in
                 if let error = error {
                     // Handle the error here
@@ -96,11 +108,13 @@ class TripPlanningViewModel:NSObject, ObservableObject{
         }
     }
     
+    //MARK: - Save route record
     func trackRoute(routeRecord:RouteRecord,context:NSManagedObjectContext){
         persistenceController.addItem(routeRecord: routeRecord,context: context)
     }
 }
 
+//MARK: - Get user current location through GPS function
 extension TripPlanningViewModel:CLLocationManagerDelegate{
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: - Nested construt to store different level of info regarding transit route
 struct RouteResponse:Codable {
     let routes:[Route?]
 }

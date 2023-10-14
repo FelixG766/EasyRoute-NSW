@@ -13,6 +13,7 @@ struct StopAnnotationDetailView: View {
     @State var stopAnnotation:StopAnnotation
     @State private var currentTime = Date()
     private let viewModel = StopAnnotationDetailViewModel()
+    //MARK: - Computed property for calculating remining time
     private var remainingTime: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -33,37 +34,46 @@ struct StopAnnotationDetailView: View {
     
     var body: some View {
         VStack {
-            VStack{
+            Spacer()
+            ZStack {
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(stopAnnotation.transitLineColor)
+                    .frame(width: 120, height: 120)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(stopAnnotation.transitLineColor, lineWidth: 2)
+                    )
+                
                 Image(systemName: stopAnnotation.vehicleIcon)
-                    .foregroundColor(stopAnnotation.transitLineColor)
-                    .imageScale(.large)
-                Text(stopAnnotation.stop.name)
-                    .font(.title)
-                    .bold()
-                    .padding()
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 80, height: 80)
+                    .foregroundColor(.white)
             }
+            .padding(.top, 10)
+            
+            Text(stopAnnotation.transitLine)
+                .font(.largeTitle)
+                .foregroundColor(stopAnnotation.transitLineColor)
+                .bold()
+                .padding(.top, 10)
+
+            Text(stopAnnotation.stop.name)
+                .font(.title)
+                .bold()
+                .multilineTextAlignment(.center)
+            
+            
+            //MARK: - Display different content for departure and arrival stops
             if stopAnnotation.stopType == "Arrival" {
-                HStack{
-                    Text("This is the arival stop for")
-                        .font(.title2)
-                    Text(stopAnnotation.transitLine)
-                        .font(.title2)
-                        .foregroundColor(stopAnnotation.transitLineColor)
-                        .bold()
-                }
-                Text("Will arrival at \(stopAnnotation.sydneyTime)")
-            }else{
-                VStack(spacing:10){
-                    Text("Please catch")
-                        .font(.title2)
-                    Text(stopAnnotation.transitLine)
-                        .font(.title)
-                        .foregroundColor(stopAnnotation.transitLineColor)
-                        .bold()
-                }
-                .padding(.bottom)
-                VStack(spacing:5){
-                    Text("Will departure in")
+                Text("Expected Arrival Time:")
+                    .font(.title)
+                
+                Text(stopAnnotation.sydneyTime)
+                    .font(.title)
+            } else {
+                VStack(spacing: 10) {
+                    Text("Next Departure in:")
                         .font(.title)
                         .onAppear {
                             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
@@ -73,19 +83,25 @@ struct StopAnnotationDetailView: View {
                     Text(remainingTime)
                         .font(.title)
                 }
-                VStack(spacing:5){
-                    Text("Walking there need")
+                
+                VStack(spacing: 10) {
+                    Text("Time Needed for Walking:")
                         .font(.title)
-                    Text(viewModel.calculateWalkingDistance(to:CLLocationCoordinate2D(latitude: stopAnnotation.stop.location.latLng.latitude, longitude: stopAnnotation.stop.location.latLng.longitude)))
+                    Text(viewModel.calculateWalkingDistance(to: CLLocationCoordinate2D(latitude: stopAnnotation.stop.location.latLng.latitude, longitude: stopAnnotation.stop.location.latLng.longitude)))
                         .font(.title)
                 }
-                .padding()
             }
+            
             Spacer()
         }
-        .background(Color.white)
-        .cornerRadius(10)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .cornerRadius(20)
+        .padding()
+        .padding(.horizontal, 20)
+        .padding(.bottom, 20)
     }
+
+
 }
 
 struct StopAnnotationDetailView_Previews: PreviewProvider {

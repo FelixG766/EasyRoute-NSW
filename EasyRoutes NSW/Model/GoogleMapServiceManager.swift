@@ -11,8 +11,10 @@ import MapKit
 
 struct GoogleMapServiceManager{
     
+    //MARK: - Send request for all transit details along target route
     func getTransitDirections(startPlacemark: CLPlacemark, destinationPlacemark: CLPlacemark, completionHandler: @escaping (Result<Any, Error>) -> Void) {
-        // Define your request parameters as a dictionary
+        
+        //MARK: - Construct http request
         let originLocation: [String: Any] = [
             "latLng": [
                 "latitude": startPlacemark.location?.coordinate.latitude ?? 0.0,
@@ -28,8 +30,8 @@ struct GoogleMapServiceManager{
         ]
         
         let parameters: [String: Any] = [
-            "origin": ["location": originLocation], // Use placemark location as origin
-            "destination": ["location": destinationLocation], // Use placemark location as destination
+            "origin": ["location": originLocation],
+            "destination": ["location": destinationLocation],
             "travelMode": "TRANSIT",
             "computeAlternativeRoutes": true,
             "transitPreferences": [
@@ -38,17 +40,15 @@ struct GoogleMapServiceManager{
             ] as [String : Any]
         ]
         
-        // Define your headers
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
             "X-Goog-Api-Key": SensitiveInfo.GoogleMapService.API_KEY,
             "X-Goog-FieldMask": "routes.legs.steps.transitDetails"
         ]
         
-        // Define the API URL
         let apiUrl = "https://routes.googleapis.com/directions/v2:computeRoutes"
         
-        // Make the HTTP POST request
+        //MARK: - Send http request using Alamofire
         AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .response { response in
                 switch response.result {
@@ -61,20 +61,19 @@ struct GoogleMapServiceManager{
                             completionHandler(.failure(error))
                         }
                     }
-
+                    
                 case .failure(let error):
-                    // Handle the error here
                     completionHandler(.failure(error))
                 }
             }
     }
     
+    //MARK: - Decode route from json file to custom defined struct
     func decodeRoutes(from jsonObject: Any) -> RouteResponse? {
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: .fragmentsAllowed)
             let decoder = JSONDecoder()
             let response = try decoder.decode(RouteResponse.self, from: jsonData)
-            // Handle and use the 'routes' array as needed
             return response
         } catch {
             print("Error decoding JSON: \(error)")
@@ -82,6 +81,7 @@ struct GoogleMapServiceManager{
         return nil
     }
     
+    //MARK: - Get directions from two places as specified by the user
     func calculateRoute(startPlace: CLPlacemark, destination: CLPlacemark, completion: @escaping (RouteResponse?, Error?) -> Void) {
         getTransitDirections(startPlacemark: startPlace, destinationPlacemark: destination) { response in
             switch response {

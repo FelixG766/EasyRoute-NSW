@@ -25,12 +25,11 @@ struct MainView: View {
                     .environmentObject(mapViewModel)
                     .tag(0)
                 
-                MapView(selectedTab: $selectedTab)
+                MapView()
                     .tabItem {
                         Image(systemName: "map")
                         Text("Map View")
                     }
-                    .environmentObject(tripViewModel)
                     .environmentObject(mapViewModel)
                     .tag(1)
                 HistoryRoutesView(selectedTab: $selectedTab)
@@ -50,7 +49,6 @@ struct MainView: View {
             }
             .toolbarBackground(Color.gray.opacity(0.1), for: .tabBar)
             .toolbarBackground(.visible, for: .tabBar)
-            
         }
     }
 }

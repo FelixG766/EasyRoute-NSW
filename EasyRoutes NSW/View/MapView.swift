@@ -11,45 +11,65 @@ import MapKit
 struct MapView: View {
     
     @EnvironmentObject var mapViewModel:MapViewModel
-    @EnvironmentObject var tripViewModel:TripPlanningViewModel
-    @State private var isShowingUserLocation = false
-    @Binding var selectedTab:Int
-    @State private var selectedAnnotation: StopAnnotation?
     
     var body: some View {
         NavigationView{
-            ZStack(alignment: .bottomTrailing) {
-                Map(coordinateRegion: $mapViewModel.focusedRegion, showsUserLocation: isShowingUserLocation, annotationItems:mapViewModel.transitAnnotation){ annotation in
+            ZStack(alignment: .bottomTrailing){
+                Map(coordinateRegion: $mapViewModel.focusedRegion, showsUserLocation: true, annotationItems:mapViewModel.transitAnnotation){ annotation in
                     MapAnnotation(coordinate: annotation.coordinate) {
                         NavigationLink(destination:StopAnnotationDetailView(stopAnnotation: annotation)){
-                            VStack{
+                            ZStack{
+                                Circle()
+                                    .fill(.background)
+                                Circle()
+                                    .stroke(.secondary,lineWidth:5)
                                 Image(systemName: annotation.vehicleIcon)
-                                    .foregroundColor(.blue)
+                                    .foregroundColor(annotation.transitLineColor)
                                     .imageScale(.large)
+                                    .padding(5)
                             }
                         }
                     }
                 }
-                .onAppear {
-                    mapViewModel.updateRegionForUserLocation(isShowingUserLocation)
-                }
-                .onDisappear {
-                    isShowingUserLocation = false
-                    mapViewModel.updateRegionForUserLocation(false)
-                }
                 .ignoresSafeArea()
-                
-                Button(action: {
-                    isShowingUserLocation.toggle()
-                    mapViewModel.updateRegionForUserLocation(isShowingUserLocation)
-                }) {
-                    Circle()
-                        .frame(width: 40, height: 40)
-                        .foregroundColor(Color.blue)
-                        .overlay(
-                            Image(systemName: "location")
-                                .foregroundColor(.white)
-                        )
+                VStack{
+                    if let departureRegion = mapViewModel.departureRegion {
+                        Button(action: {
+                            mapViewModel.focusedRegion = departureRegion
+                        }) {
+                            Circle()
+                                .frame(width: 40, height: 40)
+                                .foregroundColor(Color.blue)
+                                .overlay(
+                                    Image(systemName: "figure.walk.departure")
+                                        .foregroundColor(.white)
+                                )
+                        }
+                    }
+                    if let arrivalRegion = mapViewModel.arrivalRegion {
+                        Button(action: {
+                            mapViewModel.focusedRegion = arrivalRegion
+                        }) {
+                            Circle()
+                                .frame(width: 40, height: 40)
+                                .foregroundColor(Color.blue)
+                                .overlay(
+                                    Image(systemName: "figure.walk.arrival")
+                                        .foregroundColor(.white)
+                                )
+                        }
+                    }
+                    Button(action: {
+                        mapViewModel.updateRegionForUserLocation()
+                    }) {
+                        Circle()
+                            .frame(width: 40, height: 40)
+                            .foregroundColor(Color.blue)
+                            .overlay(
+                                Image(systemName: "location")
+                                    .foregroundColor(.white)
+                            )
+                    }
                 }
                 .padding()
             }
@@ -65,14 +85,8 @@ extension MKCoordinateRegion: Equatable {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        let bindingTab = Binding<Int>(
-            get: { 1 }, // Initial value
-            set: { _ in }
-        )
-        let tripViewModel = TripPlanningViewModel()
         let mapViewModel = MapViewModel()
-        MapView(selectedTab: bindingTab)
-            .environmentObject(tripViewModel)
+        MapView()
             .environmentObject(mapViewModel)
     }
 }
